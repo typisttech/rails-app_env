@@ -28,7 +28,7 @@ jobs:
           bundler-cache: true
 
       - name: Lint code for consistent style
-        run: bin/rubocop -f github
+        run: bundle exec standardrb --format github --format "Standard::Formatter"
 
   test:
     runs-on: ubuntu-latest
