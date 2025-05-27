@@ -1,0 +1,5 @@
+[tools]
+ruby = "3.2.8"
+
+[env]
+_.path = "bin"
