@@ -1,14 +1,14 @@
 require_relative "lib/rails/app_env/version"
 
 Gem::Specification.new do |spec|
-  spec.name        = "rails-app_env"
-  spec.version     = Rails::AppEnv::VERSION
-  spec.authors     = [ "Typist Tech Limited", "Tang Rufus" ]
-  spec.email       = [ "opensource+swagger_ui_standalone@typist.tech", "tangrufus@gmail.com" ]
+  spec.name = "rails-app_env"
+  spec.version = Rails::AppEnv::VERSION
+  spec.authors = ["Typist Tech Limited", "Tang Rufus"]
+  spec.email = ["opensource+swagger_ui_standalone@typist.tech", "tangrufus@gmail.com"]
 
-  spec.summary     = "Summary of Rails::AppEnv."
-  spec.homepage    = "https://github.com/typisttech/rails-app_env"
-  spec.license     = "MIT"
+  spec.summary = "Summary of Rails::AppEnv."
+  spec.homepage = "https://github.com/typisttech/rails-app_env"
+  spec.license = "MIT"
   spec.required_ruby_version = ">= 3.2.0"
 
   spec.metadata["homepage_uri"] = spec.homepage
