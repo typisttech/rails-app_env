@@ -4,7 +4,7 @@ module Rails
       def app_env
         return Rails.env unless ENV["APP_ENV"].present?
 
-        @_app_env ||= ActiveSupport::EnvironmentInquirer.new(ENV["APP_ENV"])
+        @_app_env ||= EnvironmentInquirer.new(ENV["APP_ENV"])
       end
     end
   end

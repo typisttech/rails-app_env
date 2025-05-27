@@ -5,15 +5,21 @@ class Rails::AppEnvTest < ActiveSupport::TestCase
 
   DEFAULT_RAILS_ENV = "development"
 
-  test "Rails.app_env is an instance of EnvironmentInquirer when APP_ENV is present" do
+  test "Rails.app_env is an instance of ActiveSupport::EnvironmentInquirer when APP_ENV is present" do
     switch_env "APP_ENV", nil do
       assert_instance_of ActiveSupport::EnvironmentInquirer, Rails.app_env
     end
   end
 
-  test "Rails.app_env is an instance of EnvironmentInquirer when APP_ENV is blank" do
+  test "Rails.app_env is a kind of ActiveSupport::EnvironmentInquirer when APP_ENV is blank" do
     switch_env "APP_ENV", "foo" do
-      assert_instance_of ActiveSupport::EnvironmentInquirer, Rails.app_env
+      assert_kind_of ActiveSupport::EnvironmentInquirer, Rails.app_env
+    end
+  end
+
+  test "Rails.app_env is an instance of Rails::AppEnv::EnvironmentInquirer when APP_ENV is blank" do
+    switch_env "APP_ENV", "foo" do
+      assert_instance_of Rails::AppEnv::EnvironmentInquirer, Rails.app_env
     end
   end
 
