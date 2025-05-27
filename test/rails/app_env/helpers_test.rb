@@ -1,6 +1,6 @@
 require_relative "../../env_helpers"
 
-class Rails::AppEnvTest < ActiveSupport::TestCase
+class Rails::AppEnv::HelperTest < ActiveSupport::TestCase
   include EnvHelpers
 
   DEFAULT_RAILS_ENV = "development"
@@ -25,7 +25,7 @@ class Rails::AppEnvTest < ActiveSupport::TestCase
 
   test "Rails.app_env is set from APP_ENV" do
     switch_env "APP_ENV", "foo" do
-        assert_equal "foo", Rails.app_env
+      assert_equal "foo", Rails.app_env
     end
   end
 
