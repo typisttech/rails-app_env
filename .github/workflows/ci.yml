@@ -15,7 +15,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: ruby-3.4.4
+          ruby-version: "3.2"
           bundler-cache: true
 
       - name: Lint code for consistent style
@@ -23,7 +23,10 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby: [ "3.2", "3.3", "3.4" ]
     # services:
     #  redis:
     #    image: redis
@@ -40,7 +43,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: ruby-3.4.4
+          ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
 
       - name: Run tests
