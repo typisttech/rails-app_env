@@ -17,7 +17,7 @@ module Rails::AppEnv::RailtieTest
             stdout, status = Open3.capture2(DUMMY_RAILS, "about")
 
             assert status.success?
-            assert_match /Application environment\s+foo/, stdout
+            assert_match(/Application environment\s+foo/, stdout)
           end
         end
       end
@@ -29,7 +29,7 @@ module Rails::AppEnv::RailtieTest
           stdout, status = Open3.capture2(DUMMY_RAILS, "about")
 
           assert status.success?
-          assert_match /Application environment\s+foo/, stdout
+          assert_match(/Application environment\s+foo/, stdout)
         end
       end
     end
@@ -41,7 +41,7 @@ module Rails::AppEnv::RailtieTest
             stdout, status = Open3.capture2(DUMMY_RAILS, "about")
 
             assert status.success?
-            assert_match /Application environment\s+foo/, stdout
+            assert_match(/Application environment\s+foo/, stdout)
           end
         end
       end
@@ -53,7 +53,7 @@ module Rails::AppEnv::RailtieTest
           stdout, status = Open3.capture2(DUMMY_RAILS, "about")
 
           assert status.success?
-          assert_match /Application environment\s+development/, stdout # Default Rails environment
+          assert_match(/Application environment\s+development/, stdout) # Default Rails environment
         end
       end
     end
