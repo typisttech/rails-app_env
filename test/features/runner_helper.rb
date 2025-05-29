@@ -14,7 +14,7 @@ module RunnerHelper
           with_file(touch_file) do
             stdout, status = Open3.capture2(DUMMY_RAILS, "runner", "puts #{subject}")
 
-            # assert_predicate status, :success?
+            assert_predicate status, :success?
             assert_equal expected.to_s, stdout.chomp
           end
         end
