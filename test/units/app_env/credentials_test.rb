@@ -1,4 +1,5 @@
 require "minitest/mock"
+require_relative "../../test_helper"
 
 class Rails::AppEnv::CredentialsTest < ActiveSupport::TestCase
   test "Credentials#content_path returns 'config/credentials/{APP_ENV}.yml.enc' if the file exist" do

@@ -1,3 +1,5 @@
+require_relative "../../test_helper"
+
 class Rails::AppEnv::EnvironmentInquirerTest < ActiveSupport::TestCase
   test "EnvironmentInquirer is a kind of ActiveSupport::EnvironmentInquirer" do
     assert_kind_of ActiveSupport::EnvironmentInquirer, Rails::AppEnv::EnvironmentInquirer.new("foo")
