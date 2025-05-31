@@ -15,6 +15,13 @@ module Rails
           Rails.app_env
         end
       end
+
+      console do |app|
+        require_relative "console"
+
+        app.config.console = Rails::AppEnv::Console.new(app)
+        puts "Loading #{Rails.app_env} application environment (rails-app_env #{Rails::AppEnv::VERSION})" # standard:disable Rails/Output
+      end
     end
   end
 end
