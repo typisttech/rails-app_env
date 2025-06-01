@@ -13,3 +13,5 @@ if ActiveSupport::TestCase.respond_to?(:fixture_paths=)
 end
 
 DEFAULT_RAILS_ENV = "development"
+
+DUMMY_ROOT = File.expand_path "../dummy", __FILE__

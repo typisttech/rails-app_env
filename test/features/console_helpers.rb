@@ -3,8 +3,6 @@ require "pty"
 module ConsoleHelpers
   private
 
-  DUMMY_RAILS = File.expand_path "../../dummy/bin/rails", __FILE__
-
   def with_pty
     PTY.open do |primary, replica|
       @primary, @replica = primary, replica
@@ -27,7 +25,7 @@ module ConsoleHelpers
 
     pid = Process.spawn(
       env,
-      "#{DUMMY_RAILS} console #{options}",
+      "#{DUMMY_ROOT}/bin/rails console #{options}",
       in: @replica, out: @replica, err: @replica
     )
 
