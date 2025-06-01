@@ -5,8 +5,6 @@ require "rails"
 module EnvHelpers
   private
 
-  DEFAULT_RAILS_ENV = "development"
-
   def with_rails_env(env, &block)
     Rails.instance_variable_set :@_env, nil
     switch_env "RAILS_ENV", env do

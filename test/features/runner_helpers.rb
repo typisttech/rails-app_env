@@ -1,8 +1,4 @@
-require_relative "../env_helpers"
-
 module RunnerHelpers
-  include EnvHelpers
-
   private
 
   DUMMY_RAILS = File.expand_path "../../dummy/bin/rails", __FILE__
