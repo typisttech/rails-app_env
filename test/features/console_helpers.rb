@@ -19,8 +19,7 @@ module ConsoleHelpers
       "TERM" => "dumb",
       "HOME" => home_tmp_dir,
       "APP_ENV" => nil,
-      "RAILS_ENV" => nil,
-      "SECRET_KEY_BASE_DUMMY" => "1"
+      "RAILS_ENV" => nil
     )
 
     pid = Process.spawn(
