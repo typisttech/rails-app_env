@@ -1,9 +1,9 @@
 require_relative "../test_helper"
-require_relative "runner_helper"
+require_relative "runner_helpers"
 
 module Rails::AppEnv::FeaturesTest
   class InfoTest < ActiveSupport::TestCase
-    include RunnerHelper
+    include RunnerHelpers
 
     TEST_CASES = {
       "is APP_ENV when both APP_ENV and RAILS_ENV are present": {

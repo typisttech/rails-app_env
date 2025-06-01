@@ -1,11 +1,11 @@
 require_relative "../test_helper"
-require_relative "runner_helper"
-require_relative "file_helper"
+require_relative "runner_helpers"
+require_relative "file_helpers"
 
 module Rails::AppEnv::FeaturesTest
   class CredentialsTest < ActiveSupport::TestCase
-    include RunnerHelper
-    include FileHelper
+    include RunnerHelpers
+    include FileHelpers
 
     CREDENTIALS_PATH_TEST_CASES = {
       "is {APP_ENV}.yml.enc when both APP_ENV and RAILS_ENV are present": {

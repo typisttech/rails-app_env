@@ -1,6 +1,6 @@
 require_relative "../env_helpers"
 
-module RunnerHelper
+module RunnerHelpers
   include EnvHelpers
 
   private

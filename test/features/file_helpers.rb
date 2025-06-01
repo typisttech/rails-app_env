@@ -1,4 +1,4 @@
-module FileHelper
+module FileHelpers
   private
 
   def with_file(path, &block)
