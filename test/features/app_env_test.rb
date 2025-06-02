@@ -1,5 +1,5 @@
 require_relative "../test_helper"
-require_relative "../env_helpers"
+require_relative "env_helpers"
 
 module Rails::AppEnv::FeaturesTest
   class AppEnvTest < ActiveSupport::TestCase
