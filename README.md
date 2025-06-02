@@ -82,6 +82,16 @@ In case `config/credentials/#{Rails.app_env}.key` does not exist, it falls back 
 As with default Rails behaviours, if `ENV["RAILS_MASTER_KEY"]` is present, it takes precedence over
 `config/credentials/#{Rails.app_env}.key` and `config/master.key`.
 
+As with default Rails behaviours, when invoking `$ rails credentials` commands, specific the `--environment` option
+instead of using `APP_ENV` and `RAILS_ENV`.
+
+```console
+# APP_ENV and RAILS_ENV are ignored.
+$ APP_ENV=foo RAILS_ENV=bar bin/rails credentials:edit --environment qaz
+      create  config/credentials/qaz.key
+      create  config/credentials/qaz.yml.enc
+```
+
 Learn more in the [Heroku](#heroku) section below.
 
 ### Console
