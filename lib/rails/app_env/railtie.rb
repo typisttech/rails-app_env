@@ -1,19 +1,16 @@
 module Rails
   module AppEnv
     class Railtie < Rails::Railtie
-      config.before_configuration do
+      initializer :load_helpers, before: :initialize_logger do
         Rails.extend(Helpers)
       end
 
-      config.before_configuration do |app|
-        app.config.credentials.content_path = Rails::AppEnv::Credentials.content_path
-        app.config.credentials.key_path = Rails::AppEnv::Credentials.key_path
+      initializer :set_credentials, before: :initialize_logger do
+        Rails::AppEnv::Credentials.initialize!
       end
 
       config.after_initialize do
-        Rails::Info.property "Application environment" do
-          Rails.app_env
-        end
+        Rails::Info.property "Application environment", Rails.app_env
       end
 
       console do |app|
