@@ -39,7 +39,8 @@ TODO.
 
 ### `Rails.app_env`
 
-`Rails.app_env` is like `Rails.env` but it is set by the `APP_ENV` environment variable (`ENV["APP_ENV"]`).
+`Rails.app_env` is like [`Rails.env`](https://api.rubyonrails.org/classes/Rails.html#method-c-env) but it is set by the
+`APP_ENV` environment variable (`ENV["APP_ENV"]`).
 
 It is optimization for `staging` and `review` ([the two extra Heroku pipeline stages](https://devcenter.heroku.com/articles/pipelines)),
 so it doesn't need to rely on the slower delegation through `method_missing` that `ActiveSupport::EnvironmentInquirer`
@@ -58,6 +59,17 @@ Rails.env.production? # => true
 ```
 
 In case `ENV["APP_ENV"]` is blank, `Rails.app_env` falls back to `Rails.env`.
+
+### `Rails.application.app_config_for`
+
+`Rails.application.app_config_for` wraps[`Rails.application.config_for`](https://api.rubyonrails.org/classes/Rails/Application.html#method-i-config_for)
+with `{env: Rails.app_env}` as the second argument.
+
+```ruby
+# These two lines are equivalent.
+Rails.application.app_config_for(:foo)
+Rails.application.config_for(:foo, env: Rails.app_env)
+```
 
 ### Credentials
 
