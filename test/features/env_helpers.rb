@@ -1,9 +1,10 @@
-# frozen_string_literal: true
-
-require "rails"
-
 module EnvHelpers
   private
+
+  def with_app_env(app_env, &block)
+    Rails.instance_variable_set :@_app_env, nil
+    switch_env "APP_ENV", app_env, &block
+  end
 
   def with_rails_env(env, &block)
     Rails.instance_variable_set :@_env, nil

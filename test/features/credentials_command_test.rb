@@ -5,6 +5,10 @@ module Rails::AppEnv::FeaturesTest
   class CredentialsCommandTest < ActiveSupport::TestCase
     include FileHelpers
 
+    def setup
+      cleanup_credentials_files
+    end
+
     def teardown
       cleanup_credentials_files
     end
