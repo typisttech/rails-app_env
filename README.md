@@ -107,6 +107,7 @@ bundle add rails-app_env
 ## Prior Art
 
 - [anyway_config](https://github.com/palkan/anyway_config)
+- [config](https://github.com/rubyconfig/config)
 
 ## Credits
 
