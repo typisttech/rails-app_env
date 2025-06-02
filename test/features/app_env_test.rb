@@ -5,6 +5,10 @@ module Rails::AppEnv::FeaturesTest
   class AppEnvTest < ActiveSupport::TestCase
     include EnvHelpers
 
+    def setup
+      Rails.instance_variable_set :@_app_env, nil
+    end
+
     test "Rails.app_env is a kind of ActiveSupport::EnvironmentInquirer when APP_ENV is present" do
       switch_env "APP_ENV", "foo" do
         assert_kind_of ActiveSupport::EnvironmentInquirer, Rails.app_env
@@ -46,7 +50,6 @@ module Rails::AppEnv::FeaturesTest
         with_rails_env("foo") do
           assert_equal "foo", Rails.app_env
           assert_equal "foo", Rails.env
-          assert_same Rails.env, Rails.app_env
         end
       end
     end
@@ -56,7 +59,6 @@ module Rails::AppEnv::FeaturesTest
         with_rails_env(nil) do
           assert_equal DEFAULT_RAILS_ENV, Rails.app_env
           assert_equal DEFAULT_RAILS_ENV, Rails.env
-          assert_same Rails.env, Rails.app_env
         end
       end
     end
@@ -64,6 +66,9 @@ module Rails::AppEnv::FeaturesTest
     test "Rails.app_env does not follow Rails.env changes when both APP_ENV and RAILS_ENV are present" do
       switch_env "APP_ENV", "foo" do
         with_rails_env("bar") do
+          assert_equal "foo", Rails.app_env
+          assert_equal "bar", Rails.env
+
           Rails.env = "baz"
 
           assert_equal "foo", Rails.app_env
@@ -75,6 +80,9 @@ module Rails::AppEnv::FeaturesTest
     test "Rails.app_env does not follow Rails.env changes when APP_ENV is present and RAILS_ENV is blank" do
       switch_env "APP_ENV", "foo" do
         with_rails_env(nil) do
+          assert_equal "foo", Rails.app_env
+          assert_equal DEFAULT_RAILS_ENV, Rails.env
+
           Rails.env = "bar"
 
           assert_equal "foo", Rails.app_env
@@ -83,26 +91,30 @@ module Rails::AppEnv::FeaturesTest
       end
     end
 
-    test "Rails.app_env follows Rails.env changes when APP_ENV is blank but RAILS_ENV is present" do
+    test "Rails.app_env does not follow Rails.env changes when APP_ENV is blank but RAILS_ENV is present" do
       switch_env "APP_ENV", nil do
         with_rails_env("foo") do
+          assert_equal "foo", Rails.app_env
+          assert_equal "foo", Rails.env
+
           Rails.env = "bar"
 
-          assert_equal "bar", Rails.app_env
+          assert_equal "foo", Rails.app_env
           assert_equal "bar", Rails.env
-          assert_same Rails.env, Rails.app_env
         end
       end
     end
 
-    test "Rails.app_env follows Rails.env changes when both APP_ENV and RAILS_ENV are blank" do
+    test "Rails.app_env does not follow Rails.env changes when both APP_ENV and RAILS_ENV are blank" do
       switch_env "APP_ENV", nil do
         with_rails_env(nil) do
+          assert_equal DEFAULT_RAILS_ENV, Rails.app_env
+          assert_equal DEFAULT_RAILS_ENV, Rails.env
+
           Rails.env = "foo"
 
-          assert_equal "foo", Rails.app_env
+          assert_equal DEFAULT_RAILS_ENV, Rails.app_env
           assert_equal "foo", Rails.env
-          assert_same Rails.env, Rails.app_env
         end
       end
     end
