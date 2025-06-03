@@ -2,8 +2,8 @@ module Rails
   module AppEnv
     class Railtie < Rails::Railtie
       config.before_configuration do
-        Rails.extend(RailsHelpers)
-        Rails.application.extend(ApplicationHelpers)
+        Rails.extend(Extensions::AppEnvAware)
+        Rails.application.extend(Extensions::AppConfigurable)
       end
 
       config.before_configuration do

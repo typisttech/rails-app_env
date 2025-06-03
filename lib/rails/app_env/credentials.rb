@@ -38,7 +38,8 @@ module Rails
         end
 
         def monkey_patch_rails_credentials_command!
-          require_relative "../rails_ext/credentials_command"
+          return unless defined?(Rails::Command::CredentialsCommand)
+          Rails::Command::CredentialsCommand.extend(Extensions::OriginalAware)
         end
       end
     end
