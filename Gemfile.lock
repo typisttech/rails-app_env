@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rails-app_env (0.1.0)
+    rails-app_env (0.2.0)
       activesupport (>= 8.0.0)
       railties (>= 8.0.0)
 
