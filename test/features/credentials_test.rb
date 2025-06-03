@@ -128,11 +128,11 @@ module Rails::AppEnv::FeaturesTest
     private
 
     def assert_credentials_path(expected_path:, touch_file: nil, **options)
-      assert_runner_puts_with_file Rails.root.join(expected_path), "Rails.configuration.credentials.content_path", touch_file, **options
+      assert_runner_puts_with_file dummy_path(expected_path), "Rails.configuration.credentials.content_path", touch_file, **options
     end
 
     def assert_key_path(expected_path:, touch_file: nil, **options)
-      assert_runner_puts_with_file Rails.root.join(expected_path), "Rails.configuration.credentials.key_path", touch_file, **options
+      assert_runner_puts_with_file dummy_path(expected_path), "Rails.configuration.credentials.key_path", touch_file, **options
     end
 
     def assert_runner_puts_with_file(expected, subject, file_path, **options)

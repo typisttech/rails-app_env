@@ -8,7 +8,7 @@ module Rails
 
       config.before_configuration do
         # TODO: Allow opt-out.
-        Rails::AppEnv::Credentials.initialize!
+        Credentials.initialize!
       end
 
       config.after_initialize do
@@ -19,8 +19,7 @@ module Rails
 
       console do |app|
         # TODO: Allow opt-out.
-        require_relative "console"
-        app.config.console = Rails::AppEnv::Console.new(app)
+        app.config.console = Console.new(app)
 
         puts "Loading #{Rails.app_env} application environment (rails-app_env #{Rails::AppEnv::VERSION})" # standard:disable Rails/Output
       end

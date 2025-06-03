@@ -1,9 +1,7 @@
-require_relative "error"
-
 module Rails
   module AppEnv
     module Credentials
-      class AlreadyInitializedError < Rails::AppEnv::Error; end
+      class AlreadyInitializedError < Error; end
 
       class << self
         attr_reader :original

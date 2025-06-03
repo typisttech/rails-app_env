@@ -1,12 +1,13 @@
 require_relative "app_env/version"
-require_relative "app_env/environment_inquirer"
-require_relative "app_env/rails_helpers"
-require_relative "app_env/application_helpers"
-require_relative "app_env/credentials"
 require_relative "app_env/railtie"
 
 module Rails
   module AppEnv
-    # Your code goes here...
+    autoload :ApplicationHelpers, "rails/app_env/application_helpers"
+    autoload :Console, "rails/app_env/console"
+    autoload :Credentials, "rails/app_env/credentials"
+    autoload :EnvironmentInquirer, "rails/app_env/environment_inquirer"
+    autoload :Error, "rails/app_env/error"
+    autoload :RailsHelpers, "rails/app_env/rails_helpers"
   end
 end
