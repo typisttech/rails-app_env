@@ -26,7 +26,7 @@ module Rails::AppEnv
       end
     end
 
-    test "#colorized_env shorten Rails.app_env to dev when Rails.app_env is production" do
+    test "#colorized_env shorten Rails.app_env to prod when Rails.app_env is production" do
       Rails.stub :app_env, "production" do
         Rails.stub :env, "bar" do
           console = Console.new(nil)
