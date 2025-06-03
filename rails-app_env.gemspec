@@ -23,5 +23,7 @@ Gem::Specification.new do |spec|
     Dir["{app,config,db,lib}/**/*", "LICENSE", "Rakefile", "README.md"]
   end
 
-  spec.add_dependency "rails", ">= 8.0.2"
+  rails_version = ">= 8.0.0"
+  spec.add_dependency "railties", rails_version
+  spec.add_dependency "activesupport", rails_version
 end
