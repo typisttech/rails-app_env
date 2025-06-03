@@ -1,9 +1,9 @@
 require "minitest/mock"
 require_relative "../../test_helper"
-require "rails/app_env/console"
+require "rails/commands/console/irb_console"
 
 class Rails::AppEnv::ConsoleTest < ActiveSupport::TestCase
-  test "Console is a kind of Rails::Console::IRBConsole" do
+  test "Rails::AppEnv::Console is a kind of Rails::Console::IRBConsole" do
     assert_kind_of Rails::Console::IRBConsole, Rails::AppEnv::Console.new(nil)
   end
 

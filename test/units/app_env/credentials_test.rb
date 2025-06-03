@@ -2,6 +2,10 @@ require "minitest/mock"
 require_relative "../../test_helper"
 
 class Rails::AppEnv::CredentialsTest < ActiveSupport::TestCase
+  test "Rails::AppEnv::Credentials::AlreadyInitializedError is a kind of Rails::AppEnv::Error" do
+    assert_kind_of Rails::AppEnv::Error, Rails::AppEnv::Credentials::AlreadyInitializedError.new
+  end
+
   test "#initialize! can only be invoked once" do
     reset_credentials
 
