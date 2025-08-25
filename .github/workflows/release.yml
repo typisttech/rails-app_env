@@ -14,7 +14,7 @@ jobs:
       id-token: write
     environment: rubygems.org
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           # See: https://github.com/actions/checkout/issues/1467#issuecomment-2764532031
           fetch-depth: 1
