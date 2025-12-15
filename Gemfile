@@ -11,4 +11,4 @@ gem "sqlite3"
 gem "debug"
 
 gem "standard", "~> 1.52"
-gem "standard-rails", "~> 1.5"
+gem "standard-rails", "~> 1.6"
