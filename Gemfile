@@ -10,5 +10,5 @@ gem "sqlite3"
 # Start debugger with binding.b [https://github.com/ruby/debug]
 gem "debug"
 
-gem "standard", "~> 1.53"
+gem "standard", "~> 1.54"
 gem "standard-rails", "~> 1.6"
